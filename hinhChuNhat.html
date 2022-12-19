@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<lable>Chiều rộng<input id="width" type="number"></lable>
+<br><br>
+<lable>Chiều cao<input id="height" type="number"></lable>
+<br><br>
+<lable>Diện tích <input id="area" type="text" readonly></lable>
+<br><br>
+<lable>Chu vi <input id="perimeter" type="text" disabled></lable>
+<br><br>
+<button onclick="result()">Submit</button>
+<button onclick="reset()">Reset</button>
+<br><br>
+<canvas id="myCanvas" width="1000" height="600" style="border: solid 1px ;"></canvas>
+<script>
+    class Rectangle {
+        height;
+        width;
+
+        constructor(height, width) {
+            this.height = height;
+            this.width = width;
+        }
+
+        // getHeight() {
+        //     return this.height;
+        // }
+
+        // setHeight(height) {
+        //     this.height = height;
+        // }
+
+        // getWidth() {
+        //     return this.width;
+        // }
+
+        // setWidth(width) {
+        //     this.width = width;
+        // }
+
+        getPerimeter() {
+            return (this.height + this.width) * 2;
+        }
+
+        getArea() {
+            return this.height * this.width;
+        }
+    }
+
+    function result() {
+
+        let w = +document.getElementById("width").value;
+        let h = +document.getElementById("height").value;
+        let Rectangle1 = new Rectangle(h, w);
+        let perimeter = Rectangle1.getPerimeter();
+        let area = Rectangle1.getArea();
+        document.getElementById('area').value = area;
+        document.getElementById('perimeter').value = perimeter;
+        let canvas = document.getElementById('myCanvas');
+        let ctx = canvas.getContext('2d');
+        ctx.beginPath();
+        ctx.fillStyle= 'red';
+        ctx.fillRect(500-w/2  ,300-h/2, w,h)
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function reset() {
+        document.getElementById('width').value = "";
+        document.getElementById('height').value = "";
+        document.getElementById('area').value = "";
+        document.getElementById('perimeter').value = "";
+        let ctx = document.getElementById('myCanvas').getContext('2d');
+        ctx.clearRect(0,0,1000,600)
+    }
+
+
+</script>
+</body>
+</html>

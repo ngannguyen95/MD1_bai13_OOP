@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="800px" height="500px" style="border: solid 1px red">
+</canvas>
+<script>
+    let canvas = document.getElementById('myCanvas');
+    let ctx = canvas.getContext('2d');
+
+    // vẽ hình chữ nhật trên
+    ctx.beginPath()
+    ctx.fillStyle = 'green';
+    ctx.fillRect(0, 0, 200, 50)
+    ctx.fill()
+    ctx.stroke()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'green';
+    ctx.fillRect(300, 0, 200, 50)
+    ctx.fill()
+    ctx.stroke()
+    ctx.closePath()
+
+
+    ctx.beginPath()
+    ctx.fillStyle = 'green';
+    ctx.fillRect(600, 0, 200, 50)
+    ctx.fill()
+    ctx.stroke()
+    ctx.closePath()
+
+    // vẽ hình tròn trên
+    ctx.beginPath();
+    ctx.stokeStyle = 'black';
+    ctx.fillStyle = 'red';
+    ctx.arc(100, 100, 50, 0, 2 * Math.PI, false);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.stokeStyle = 'black';
+    ctx.fillStyle = 'red';
+    ctx.arc(400, 100, 50, 0, 2 * Math.PI, false);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.stokeStyle = 'black';
+    ctx.fillStyle = 'red';
+    ctx.arc(700, 100, 50, 0, 2 * Math.PI, false);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+
+    //hình chữ nhật trên
+    ctx.beginPath()
+    ctx.fillStyle = 'green';
+    ctx.fillRect(0, 450, 200, 50)
+    ctx.fill()
+    ctx.stroke()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'green';
+    ctx.fillRect(300, 450, 200, 50)
+    ctx.fill()
+    ctx.stroke()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'green';
+    ctx.fillRect(600, 450, 200, 50)
+    ctx.fill()
+    ctx.stroke()
+    ctx.closePath()
+
+    // vẽ hình tròn dưới
+    ctx.beginPath();
+    ctx.stokeStyle = 'black';
+    ctx.fillStyle = 'red';
+    ctx.arc(100, 400, 50, 0, 2 * Math.PI, false);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.stokeStyle = 'black';
+    ctx.fillStyle = 'red';
+    ctx.arc(400, 400, 50, 0, 2 * Math.PI, false);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.stokeStyle = 'black';
+    ctx.fillStyle = 'red';
+    ctx.arc(700, 400, 50, 0, 2 * Math.PI, false);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+</script>
+</body>
+</html>
