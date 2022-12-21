@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Animal {
+        name;
+        weight;
+        speed;
+
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(weight) {
+            this.weight = weight;
+        }
+
+        getSpeed() {
+            return this.speed;
+        }
+
+        setSpeed(speed) {
+            this.speed = speed;
+        }
+
+        say(message) {
+            console.log(message)
+        }
+
+    }
+
+    class Mouse extends Animal {
+        isLive;
+
+        constructor(name, weight, speed, isLive) {
+            super(name, weight, speed);  // super để ấy thuộc tính từ cha là Animal
+            this.isLive = isLive;
+        }
+
+        getIsLive() {
+            return this.isLive;
+        }
+
+        setIsLive(isLive) {
+            this.isLive = isLive;
+        }
+
+        // say(message) {
+        //     super.say(message);
+        // }
+
+    }
+
+    class Cat extends Animal {
+
+        constructor(name, weight, speed) {
+            super(name, weight, speed);
+        }
+
+        catchMouse(mouse) {// mèo bắt chuột
+            if (super.getSpeed() > mouse.getSpeed()) {   // lấy phương thức của cha
+                console.log('bắt được chuột')
+                mouse.setIsLive(false)
+            }else{
+                console.log('chưa bắt được ')
+            }
+        }
+        eatMouse(mouse){  //mèo ăn
+            if (mouse.getIsLive()){
+                console.log('Không ăn được ')
+            }else{
+                console.log('yum yum')
+                super.setWeight(super.getWeight()+mouse.getWeight())
+                console.log(super.getWeight())
+                console.log('khối lượng sau khi ăn chuột ' +super.getWeight() )
+            }
+        }
+    }
+    let mouse = new Mouse('Rat',1,10,true);  // đây là con chuột chạy chậm hơn mèo
+    let mouse1 = new Mouse('Hai',1,70,true); // đây là con chuột chạy nhanh hơn mèo
+    let cat = new Cat('Cat',2,50);
+
+</script>
+</body>
+</html>

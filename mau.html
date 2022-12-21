@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<p id="game" onclick="start()">
+  <script>
+    class Hero {
+      image;
+      top;
+      left;
+      size;
+
+      constructor(image, top, left, size) {
+        this.image = image;
+        this.top = top;
+        this.left = left;
+        this.size = size;
+      }
+
+      getHeroElement() {
+        return '<img width="' + this.size + '"' +
+                ' height="' + this.size + '"' +
+                ' src="' + this.image + '"' +
+                ' style="top: ' + this.top + 'px; left:' + this.left + 'px;position:absolute;" />';
+
+      }
+
+      setmoveRight() {
+        this.left += 20;
+
+      }
+
+      setmoveTop() {
+        this.top += 20;
+
+      }
+
+      setmoveLeft() {
+        this.left -= 20;
+
+      }
+
+      setmoveUp() {
+        this.top -= 20;
+
+      }
+    }
+
+    let hero = new Hero("https://demoda.vn/wp-content/uploads/2022/03/anh-con-cua-800x582.jpg", 20, 30, 200);
+
+    function start() {
+
+      if (hero.left < window.innerWidth - hero.size && hero.top == 20) {
+        hero.setmoveRight();
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        setTimeout(start, 100)
+
+      } else if (hero.top <= window.innerHeight - hero.size && hero.left > 450) {
+        hero.setmoveTop();
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        setTimeout(start, 100)
+      } else if (hero.left >= 20 && hero.top != 20) {
+        hero.setmoveLeft();
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        setTimeout(start, 100)
+      } else {
+        hero.setmoveUp();
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        setTimeout(start, 100)
+      }
+    }
+
+    start();
+  </script>
+</body>
+</html>

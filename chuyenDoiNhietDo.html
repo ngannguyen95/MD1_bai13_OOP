@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<lable>Độ C <input id="doC" type="text"></lable>
+<lable>Độ F <input id="doF" type="text" readonly></lable>
+<lable>Độ K <input id="doK" type="text" readonly></lable>
+<button onclick="result()">Kết quả</button>
+<script>
+    class Temperature {
+        doC;
+
+        constructor(doC) {
+            this.doC = doC;
+        }
+
+        getCtoF() {
+            return (this.doC * 9) / 5 + 32;
+        }
+
+        getCtoK() {
+            return this.doC + 273.15;
+        }
+    }
+   function result() {
+    let doC = +document.getElementById('doC').value;
+    let temp = new Temperature(doC);
+    if (doC> -273) {
+        document.getElementById('doF').value= temp.getCtoF();
+        document.getElementById('doK').value= temp.getCtoK();
+    }  else {
+        alert('Độ C phải lớn hơn -273 độ. Vui lòng nhập lại') ;
+    }
+       }
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Apple {
+        weight;
+
+        constructor(weight) {
+            this.weight = weight;
+        }
+
+        getWeight() {  // không cần set khối lượng của quả táo
+            return this.weight
+        }
+
+        setWeight(weight) {
+            this.weight = weight;
+        }
+
+        deocrease() { // khối lượng quả táo giảm bớt
+            this.weight--;
+        }
+
+        isEmpty() { // check khối lượng quả táo, qui ước true là heest táo
+            if (this.getWeight() == 0) {
+                return true; // người không ăn được nữa vì hết táo
+            } else {
+                return false;
+            }
+        }
+    }
+
+    class Human {
+        name;
+        gender; // giới tính true fale, kiểu boolean
+        weight;
+
+        constructor(name, gender, weight) {
+            this.gender = gender;
+            this.weight = weight;
+            this.name = name;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(weight) {
+            this.weight = weight;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        isMale() {
+            return this.gender;
+        }
+
+        setGender(gender) {
+            this.gender = gender;
+        }
+
+        checkApple(apple) { // check táo
+
+            if (apple.isEmpty()) {
+                return true; // ko ăn đực nữa
+            } else {
+                return false; // ăn được nhé
+            }
+        }
+
+        eat(apple) {
+            console.log(this.checkApple(apple))
+            if (this.checkApple(apple)) {
+                console.log(' Ăn hết táo')
+            } else {
+                console.log('Tiếp tục ăn')
+                this.setWeight(this.getWeight() + 1);//ăn táo thì khối lượng người tăng tếm 1 đơn vị. vì trong class của human nên dùng this để gọi
+                apple.setWeight(apple.getWeight() - 1); // khối lượng quả táo giảm đi 1 đơn vị.  vì trong class của human nên phải gọi apple.
+
+            }
+
+        }
+
+        say() {
+            console.log('Tao tên là :' + this.getName());
+            console.log('Tao nặng :' + this.getWeight() + 'kg');
+        }
+    }
+
+    let apple = new Apple(3);
+    let human = new Human('Maruko', false, 50);
+</script>
+</body>
+</html>
